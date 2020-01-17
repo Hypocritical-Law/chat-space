@@ -1,6 +1,6 @@
 # データベース:chat-space
 
-## usersテーブル/by&nbsp;device
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
