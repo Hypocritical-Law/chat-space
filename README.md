@@ -45,8 +45,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group|references|index: true, foreign_key: true, null: false|
-|user|references|index: true, foreign_key: true, null: false|
+|group|references|foreign_key: true, null: false|
+|user|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :user
