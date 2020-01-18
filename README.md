@@ -17,7 +17,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|foreign_key: true|
+|user|references|foreign_key: true, null: false|
 |body|text||
 |image|string||
 |group|references|foreign_key: true, null: false|
