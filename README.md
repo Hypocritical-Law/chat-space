@@ -20,7 +20,7 @@
 |user|references|foreign_key: true|
 |body|text||
 |image|string||
-|group|references|foreign_key: true|
+|group|references|foreign_key: true, null: false|
 
 
 ### Association
