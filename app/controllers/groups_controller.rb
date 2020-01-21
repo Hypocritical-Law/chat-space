@@ -1,0 +1,57 @@
+class GroupsController < ApplicationController
+  before_action :authenticate_with_http_basic #authenticate_user!
+  before_action :find_group_params, only: [:edit, :update]
+
+  def index
+    @groups = current_user.groups.order(id: :DESC)
+  end
+
+  def new
+    @group = Group.new
+    @group.users << current_user  #カリキュラム追加
+  end
+
+  def create
+    @group = Group.new(group_params)
+    if @group.save
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "グループを作成しました" }
+        format.json
+      end
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    #if @group.update(group_params)
+    #  redirect_to group_messages_path(@group), notice: "グループを編集しました"
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to root_path, notice: 'グループを更新しました'
+    else
+      render :edit
+    end
+  end
+
+  def search
+    @users_except_me = User.where.not(id: current_user.id)
+    @users = @users_except_me.where('name LIKE(?)', "%#{params[:name]}%")
+    render json: @users
+  end
+
+  private
+  def group_params
+    user_ids = params[:group]["user_ids"]
+    user_ids << current_user.id.to_s
+    params.require(:group).permit(:name, user_ids: [])
+  end
+
+  def find_group_params
+    @group = Group.find(params[:id])
+  end
+end
