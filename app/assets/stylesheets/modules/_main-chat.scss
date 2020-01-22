@@ -13,7 +13,7 @@
       }
       &__members {
         @include flexbox;
-        color: $gray;
+        color: $light-gray;
         font-size: 12px;
         margin-top: 15px;
         .member {
@@ -47,12 +47,12 @@
       .upper-message {
         display: flex;
         &__user-name {
-          color: $navy;
+          color: $black;
           font-size: 16px;
           font-weight: bold;
         }
         &__date {
-          color: $gray;
+          color: $light-gray;
           font-size: 12px;
           padding-left: 10px;
         }
@@ -60,7 +60,7 @@
       .lower-message {
         margin-top: 10px;
         &__content {
-          color: $navy;
+          color: $black;
           font-size: 14px;
           margin-bottom: 40px;
         }
