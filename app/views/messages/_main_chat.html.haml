@@ -4,7 +4,7 @@
         .left-header__title
           group1
         %ul.left-header__members
-          Member：
+          member：
           %li.member
             name1
           %li.member
@@ -17,7 +17,7 @@
 
     .messages
       = render @messages
-      
+
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
