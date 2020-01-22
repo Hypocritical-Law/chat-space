@@ -13,7 +13,7 @@
       }
       &__members {
         @include flexbox;
-        color: $light-gray;
+        color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
         .member {
@@ -23,15 +23,15 @@
       }
     }
     .right-header {
-      border: 1px solid $cyan;
-      color: $cyan;
+      border: 1px solid $light_bluen;
+      color: $light_blue;
       float: right;
       height: 40px;
       line-height: 40px;
       margin-top: 28px;
       padding: 0 20px;
       &__button {
-        color: $cyan;
+        color: $light_blue;
         text-decoration: none;
       }
     }
@@ -52,7 +52,7 @@
           font-weight: bold;
         }
         &__date {
-          color: $light-gray;
+          color: $light_gray;
           font-size: 12px;
           padding-left: 10px;
         }
@@ -93,7 +93,7 @@
       }
     }
     &__submit {
-      background-color: $cyan;
+      background-color: $light_blue;
       border: none;
       color: $white;
       float: right;
