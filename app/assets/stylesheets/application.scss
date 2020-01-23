@@ -1,4 +1,3 @@
-//カリキュラムにより追加：
 @import "font-awesome";
 
 //config
@@ -10,8 +9,8 @@
 @import "mixins/vendor_prefix";
 
 //modules
-@import "modules/side_bar";
-@import "modules/nain-chat";
+@import "modules/side-bar";
+@import "modules/main-chat";
 @import "modules/user";
 @import "modules/flash";
 @import "modules/group";
