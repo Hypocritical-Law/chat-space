@@ -2,27 +2,24 @@
   .main-header
     .left-header
       .left-header__title
-        group1
+        = @group.name
       %ul.left-header__members
-        member：
-        %li.member
-          name1
-        %li.member
-          name2
-        %li.member
-          name3
+        - @group.users.each do |user|
+          = user.name
+        
     .right-header
       .right-header__button
-        edit
+        = link_to "Edit", edit_group_path(@group.id)
 
   .messages
     = render @messages
 
+  
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
       .form__mask
         = f.label :image, class: 'form__mask__image' do
-          = fa_icon 'image', class: 'icon'
-        = f.file_field :image, class: 'hidden'
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'form__submit'
