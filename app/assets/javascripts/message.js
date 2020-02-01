@@ -33,19 +33,25 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-    })
-     .done(function(data){
+     })
+    .done(function(data){
       if ( data.content != undefined ){
        var html = buildHTML(data);
-       $('.messages').append(html);
-       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});      
+       $('.main-messages').append(html);
+       $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});      
        $('form')[0].reset();
-       $(".form__submit").prop("disabled", false);
+       $('.form__submit').prop('disabled', false);
        }
        else{
          alert("メッセージを入力して下さい")
        }
+    })
+  
+     .fail(function(data){
+      alert('エラーが発生したためメッセージは送信できませんでした。');
      })   
+     
+
   })
 
   var reloadMessages = function() {
@@ -69,10 +75,10 @@ $(function(){
           insertHTML += buildHTML(message)
         });
         //メッセージが入ったHTMLに、入れ物ごと追加
-        $('.messages').append(insertHTML);
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-        $("#new_message")[0].reset();
-        $(".form__submit").prop("disabled", false);
+        $('.main-messages').append(insertHTML);
+        $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});
+        $('#new_message')[0].reset();
+        $('.form__submit').prop('disabled', false);
       }
     })
     .fail(function() {
