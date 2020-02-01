@@ -40,11 +40,13 @@ $(function(){
        $('.main-messages').append(html);
        $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});      
        $('form')[0].reset();
-       $('.form__submit').prop('disabled', false);
        }
+
        else{
          alert("メッセージを入力して下さい")
+         
        }
+       $('.form__submit').prop('disabled', false);
     })
   
      .fail(function(data){
@@ -55,6 +57,8 @@ $(function(){
   })
 
   var reloadMessages = function() {
+
+    
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.message:last').data("message-id");
     $.ajax({
