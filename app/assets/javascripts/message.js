@@ -4,20 +4,20 @@ $(function(){
     var img = message.image ? `<img src='${ message.image }'> ` : '';
     var html = `<div class = "message" data-message-id=${message.id}>
                   <div class = "upper-message">
-                    <p class="upper-message__user-name">
+                    <div class="upper-message__user-name">
                       ${message.user_name}
-                    </p>
-                    <p class = "upper-message__date">
-                      ${message.date}
-                    </p>
-                  </div>
-                  <p class="lower-meesage">
-                    <div>
-                    ${content}
                     </div>
+                    <div class = "upper-message__date">
+                      ${message.date}
+                    </div>
+                  </div>
+                  <div class="lower-meesage">
+                    <p class="lower-message__content">
+                      ${ message.content}
+                    </p>
                     ${img}
-                  </p>
-               </div>`
+                  </div>
+               </div>`;
     return html;
   }
 
@@ -41,10 +41,9 @@ $(function(){
        $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});      
        $('form')[0].reset();
        }
-
+       
        else{
          alert("メッセージを入力して下さい")
-         
        }
        $('.form__submit').prop('disabled', false);
     })
@@ -80,9 +79,7 @@ $(function(){
         });
         //メッセージが入ったHTMLに、入れ物ごと追加
         $('.main-messages').append(insertHTML);
-        $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});
-        $('#new_message')[0].reset();
-        $('.form__submit').prop('disabled', false);
+
       }
     })
     .fail(function() {
