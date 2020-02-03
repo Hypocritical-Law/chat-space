@@ -79,7 +79,7 @@ $(function(){
         });
         //メッセージが入ったHTMLに、入れ物ごと追加
         $('.main-messages').append(insertHTML);
-
+        $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight}, 'fast');
       }
     })
     .fail(function() {
