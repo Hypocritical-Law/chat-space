@@ -93,6 +93,12 @@ q:before,
 q:after {
   content:'';
 }
+a{
+text-decoration: none;
+}
+a:visited {
+  color: #38AEF0;
+  }
 abbr,
 acronym {
   border:0;

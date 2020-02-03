@@ -38,7 +38,7 @@ $(function(){
       if ( data.content != undefined ){
        var html = buildHTML(data);
        $('.main-messages').append(html);
-       $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});      
+       $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight}, 'fast');      
        $('form')[0].reset();
        }
        
@@ -69,13 +69,13 @@ $(function(){
       //dataオプションでリクエストに値を含める
       data: {id: last_message_id}
     })
-    .done(function(messages) {
-      if (messages.length !== 0) {
+    .done(function(date) {
+      if (date.length !== 0) {
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
         //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
+        $.each(date, function(i, date) {
+          insertHTML += buildHTML(date)
         });
         //メッセージが入ったHTMLに、入れ物ごと追加
         $('.main-messages').append(insertHTML);
@@ -87,6 +87,6 @@ $(function(){
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 7000);
+    setInterval(reloadMessages, 3000);
   }
 });
